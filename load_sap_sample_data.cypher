@@ -140,6 +140,12 @@ e.phone=line.PHONENUMBER,
 e.email=line.EMAILADDRESS,
 e.login_name=line.LOGINNAME;
 
+//Optionally fix non utf-8 character 
+MATCH (e:Employee {name:"Haseena�al Yousuf"})
+SET e.name="Haseena al Yousuf";
+MATCH (e:Employee {name:"P�n�lope G Duperr�"})
+SET e.name="Pénélope G Duperré";
+
 //Create Employee to Address Relationship
 LOAD CSV WITH HEADERS FROM 'https://raw.githubusercontent.com/SAP-samples/data-warehouse-cloud-content/main/Sample_Bikes_Sales_content/CSV/Employees.csv' AS line
 MATCH (e:Employee {employee_id:line.EMPLOYEEID})
