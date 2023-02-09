@@ -1,7 +1,7 @@
 //1. Top Business Partners
 MATCH (so:SalesOrder)-[:PROCESSED_AT]->(bp:BusinessPartner)
 RETURN bp.company_name as Business_Partner_Name, sum(so.gross_amount) as `Total_Sales_By_Emp (USD)`
-ORDER BY `Total_Sales_By_Emp (USD)` DESC LIMIT 10;
+ORDER BY `Total_Sales_By_Bus_Prtnr (USD)` DESC LIMIT 10;
 
 //2. Top Employees
 MATCH (so:SalesOrder)-[:PROCESSED_BY]->(e:Employee)
